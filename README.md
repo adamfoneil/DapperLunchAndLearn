@@ -9,3 +9,6 @@ To do anything with Dapper, you need a database to play with. I've created somet
 ![img](https://adamosoftware.blob.core.windows.net/images/UA37NJ5TI2.png)
 
 These tables were built from these [model classes](https://github.com/adamfoneil/DapperLunchAndLearn/tree/master/DapperLunchAndLearn/Models).
+
+# Exercises
+
