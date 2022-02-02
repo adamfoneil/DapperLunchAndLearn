@@ -78,7 +78,7 @@ foreach (var artist in artists)
 </details>
 
 <details>
-    <summary>Ex 4: select all and display info by creator</summary>
+    <summary>Ex 4: Select all and display info by creator</summary>
     
 Now we're querying data! We take a plain "flat" result set with no grouping and use LINQ `GroupBy` to shape the output. Watch for opportunities to combine LINQ and SQL to do useful things. Don't see LINQ and Dapper as mutually exclusive.
     
