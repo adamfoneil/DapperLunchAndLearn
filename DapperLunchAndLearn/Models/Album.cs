@@ -10,7 +10,7 @@ namespace DapperLunchAndLearn.Models
     public class Album : BaseTable
     {
         [Key]
-        [References(typeof(Artist))]
+        [References(typeof(Artist), CascadeDelete = true)]
         public int ArtistId { get; set; }
 
         [Key]

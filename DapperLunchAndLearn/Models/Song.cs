@@ -9,7 +9,7 @@ namespace DapperLunchAndLearn.Models
     [Table("Song")] // table attribute works around Dommell's auto-pluralize behavior
     public class Song : BaseTable
     {
-        [References(typeof(Album))]
+        [References(typeof(Album), CascadeDelete = true)]
         public int AlbumId { get; set; }
 
         [MaxLength(100)]
