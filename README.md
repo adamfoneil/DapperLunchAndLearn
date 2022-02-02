@@ -12,3 +12,24 @@ These tables were built from these [model classes](https://github.com/adamfoneil
 
 # Exercises
 
+All of the exercises below require this first statement:
+
+```csharp
+using Dapper;
+using DapperLunchAndLearn;
+using DapperLunchAndLearn.Models;
+
+using var cn = Connection.Open();
+```
+
+<details>
+<summary>Ex 1: A simple insert</summary>
+
+```csharp
+await cn.ExecuteAsync("INSERT INTO [Artist] ([Name], [CreatedBy]) VALUES (@Name, @CreatedBy)", new Artist()
+{
+    Name = "Talking Heads",
+    CreatedBy = "adamo"
+});
+```
+</details>
