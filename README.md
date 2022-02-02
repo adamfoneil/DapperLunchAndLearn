@@ -224,3 +224,19 @@ foreach (var artist in allArtists)
 }
 ```   
 </details>
+
+<details>
+    <summary>Ex 8: Simpler inserts with Dommel</summary>
+    
+The [Dommel](https://github.com/HenkMollema/Dommel) library offers some extension methods to make it simple to insert and update from model classes.
+    
+```csharp
+var objId = await cn.InsertAsync(new Artist()
+{
+    Name = "Beck",
+    CreatedBy = "adamo"
+});
+
+var id = Convert.ToInt32(objId);
+```
+</details>
