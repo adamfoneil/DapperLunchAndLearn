@@ -12,7 +12,7 @@ These tables were built from these [model classes](https://github.com/adamfoneil
 
 # Exercises
 
-All of the exercises below require this first statement:
+All of the exercises below require these first statements:
 
 ```csharp
 using Dapper;
