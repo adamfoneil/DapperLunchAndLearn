@@ -6,6 +6,11 @@
     <Version>1.0.0</Version>
     <Authors>Adam O'Neil</Authors>
     <Description>A set of model classes and utilities for demonstrating Dapper</Description>
+    <Copyright>Copyright (c) Adam O'Neil 2022</Copyright>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/adamfoneil/DapperLunchAndLearn</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/adamfoneil/DapperLunchAndLearn</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

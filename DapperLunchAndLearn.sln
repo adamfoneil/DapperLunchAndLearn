@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperLunchAndLearn", "DapperLunchAndLearn\DapperLunchAndLearn.csproj", "{80C9D635-A1B2-4B30-A1C0-3DF3EC00FD00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperLunchAndLearn", "DapperLunchAndLearn\DapperLunchAndLearn.csproj", "{80C9D635-A1B2-4B30-A1C0-3DF3EC00FD00}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CLI", "CLI\CLI.csproj", "{C601639B-5C4A-4D74-BEEA-C3050B435797}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{80C9D635-A1B2-4B30-A1C0-3DF3EC00FD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80C9D635-A1B2-4B30-A1C0-3DF3EC00FD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80C9D635-A1B2-4B30-A1C0-3DF3EC00FD00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C601639B-5C4A-4D74-BEEA-C3050B435797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C601639B-5C4A-4D74-BEEA-C3050B435797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C601639B-5C4A-4D74-BEEA-C3050B435797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C601639B-5C4A-4D74-BEEA-C3050B435797}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

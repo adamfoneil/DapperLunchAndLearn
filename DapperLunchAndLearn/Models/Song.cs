@@ -1,15 +1,14 @@
 ﻿using AO.Models;
-using AO.Models.Interfaces;
+using DapperLunchAndLearn.Models.Conventions;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DapperLunchAndLearn.Models
 {
-    public class Song : IModel<int>
+    [Table("Song")] // table attribute works around Dommell's auto-pluralize behavior
+    public class Song : BaseTable
     {
-        public int Id { get; set; }
-        
         [References(typeof(Album))]
         public int AlbumId { get; set; }
 
