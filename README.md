@@ -168,6 +168,33 @@ foreach (var artist in data)
 
 <details>
     <summary>Ex 6: Fill in some missing year data</summary>
+    
+Let's fill in some missing year data for albums already inserted, then query it to see what we have. Notice how the artist name is joined into the results. Without this, we would see only the `ArtistId` in the output. For that to work, we have to add an `ArtistName` column ([property](https://github.com/adamfoneil/DapperLunchAndLearn/blob/master/DapperLunchAndLearn/Models/Album.cs#L25)) to our model class. I use the `[NotMapped]` attribute to make sure I don't create it as an actual column in the database.
+    
+```csharp
+var updates = new Album[]
+{
+    new Album() { Title = "Boy", Year = 1980 },
+    new Album() { Title = "Graceland", Year = 1986 },
+    new Album() { Title = "The Joshua Tree", Year = 1987 }
+};
+
+foreach (var album in updates)
+{
+    await cn.ExecuteAsync("UPDATE [Album] SET [Year]=@Year WHERE [Title]=@Title", album);
+}
+
+var allAbums = await cn.QueryAsync<Album>(
+    @"SELECT 
+        [alb].*, 
+        [art].[Name] AS [ArtistName]
+    FROM 
+        [Album] [alb] INNER JOIN [Artist] [art] ON [alb].[ArtistId]=[art].[Id]
+    WHERE 
+        [alb].[Year] IS NOT NULL");
+
+foreach (var album in allAbums) Console.WriteLine($"{album.ArtistName}: {album.Title} ({album.Year}), entered by {album.CreatedBy}");
+```
 </details>
 
 <details>
