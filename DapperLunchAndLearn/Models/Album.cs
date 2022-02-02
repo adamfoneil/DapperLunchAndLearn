@@ -20,5 +20,8 @@ namespace DapperLunchAndLearn.Models
         public int? Year { get; set; }
 
         public IEnumerable<Song> Songs { get; set; }
+
+        [NotMapped]
+        public string ArtistName { get; set; }
     }
 }
