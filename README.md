@@ -54,3 +54,29 @@ Console.WriteLine($"Id = {id}");
 
 ```
 </details>
+
+<details>
+    <summary>Ex 3: Insert several rows, and output all of them</summary>
+    
+In this example, we build a set of `Artist` from an array of strings. Then we perform inserts of all those `Artist` instances. Then we query all of them and output them to the console.
+    
+```csharp
+var artists = new[]
+{
+    "Duran Duran", "Devo", "Midnight Oil"
+}.Select(name => new Artist() 
+{ 
+    Name = name, 
+    CreatedBy = "adamo" 
+});
+
+foreach (var artist in artists)
+{
+    await cn.ExecuteAsync("INSERT INTO [Artist] ([Name], [CreatedBy]) VALUES (@Name, @CreatedBy)", artist);
+}
+
+var allArtists = await cn.QueryAsync<Artist>("SELECT * FROM [Artist] ORDER BY [Name]");
+
+foreach (var artist in allArtists) Console.WriteLine($"{artist.Name}: {artist.Id} ({artist.CreatedBy})");
+```
+</details>
