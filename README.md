@@ -1,6 +1,4 @@
-This is intended for a live demo using [DotNetFiddle](https://dotnetfiddle.net/) to learn [Dapper](https://github.com/DapperLib/Dapper), a great library for working with SQL in C#.
-
-To setup your fiddle environment, add the NuGet package **AO.DapperLunchAndLearn** and you'll be able to do these exercises.
+This is intended for a live demo using a certain [DotNetFiddle](https://dotnetfiddle.net/Bni3CE) to learn [Dapper](https://github.com/DapperLib/Dapper), a great library for working with SQL in C#.
 
 # The database schema
 
@@ -225,4 +223,20 @@ foreach (var artist in allArtists)
     }
 }
 ```   
+</details>
+
+<details>
+    <summary>Ex 8: Simpler inserts with Dommel</summary>
+    
+The [Dommel](https://github.com/HenkMollema/Dommel) library offers some extension methods to make it simple to insert and update from model classes.
+    
+```csharp
+var objId = await cn.InsertAsync(new Artist()
+{
+    Name = "Beck",
+    CreatedBy = "adamo"
+});
+
+var id = Convert.ToInt32(objId);
+```
 </details>
