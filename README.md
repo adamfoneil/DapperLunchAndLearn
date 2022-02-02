@@ -56,7 +56,7 @@ Console.WriteLine($"Id = {id}");
 </details>
 
 <details>
-    <summary>Ex 3: Insert several rows, and output all of them</summary>
+    <summary>Ex 3: Insert several rows</summary>
     
 In this example, we build a set of `Artist` from an array of strings using LINQ `Select`. Then we insert of all those `Artist` instances individually. Fill in your own artists!
     
