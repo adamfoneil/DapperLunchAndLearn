@@ -58,7 +58,7 @@ Console.WriteLine($"Id = {id}");
 <details>
     <summary>Ex 3: Insert several rows, and output all of them</summary>
     
-In this example, we build a set of `Artist` from an array of strings. Then we perform inserts of all those `Artist` instances. Then we query all of them and output them to the console.
+In this example, we build a set of `Artist` from an array of strings using LINQ `Select`. Then we insert of all those `Artist` instances individually.
     
 ```csharp
 var artists = new[]
@@ -74,9 +74,24 @@ foreach (var artist in artists)
 {
     await cn.ExecuteAsync("INSERT INTO [Artist] ([Name], [CreatedBy]) VALUES (@Name, @CreatedBy)", artist);
 }
+```
+</details>
 
+<details>
+    <summary>Ex 4: select all and display info by creator</summary>
+    
+Now we're querying data! We take a plain "flat" result set with no grouping and use LINQ `GroupBy` to shape the output. Watch for opportunities to combine LINQ and SQL to do useful things. Don't see LINQ and Dapper as mutually exclusive.
+    
+```csharp
 var allArtists = await cn.QueryAsync<Artist>("SELECT * FROM [Artist] ORDER BY [Name]");
 
-foreach (var artist in allArtists) Console.WriteLine($"{artist.Name}: {artist.Id} ({artist.CreatedBy})");
+foreach (var creatorGrp in allArtists.GroupBy(row => row.CreatedBy))
+{
+    Console.WriteLine($"{creatorGrp.Key} ({creatorGrp.Count()})");
+    foreach (var artist in creatorGrp)
+    {
+        Console.WriteLine($"\t{artist.Name}: {artist.Id}");
+    }    
+}
 ```
 </details>
