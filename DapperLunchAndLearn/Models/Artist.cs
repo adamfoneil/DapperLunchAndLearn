@@ -4,8 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DapperLunchAndLearn.Models
-{
-    [Table("Artist")] // table attribute works around Dommell's auto-pluralize behavior
+{    
     public class Artist : BaseTable
     {        
         [Key]

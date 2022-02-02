@@ -1,13 +1,16 @@
 ﻿using AO.Models;
-using DapperLunchAndLearn.Models.Conventions;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DapperLunchAndLearn.Models
+namespace DapperLunchAndLearn.Dommel
 {
-    public class Song : BaseTable
+    [Table("Song")] // table attribute works around Dommell's auto-pluralize behavior
+    public class Song
     {
+        [Key]
+        public int Id { get; set; }
+
         [References(typeof(Album), CascadeDelete = true)]
         public int AlbumId { get; set; }
 
@@ -19,5 +22,7 @@ namespace DapperLunchAndLearn.Models
 
         [Column(TypeName = "time")]
         public TimeSpan? Duration { get; set; }
+
+        public string CreatedBy { get; set; }
     }
 }
