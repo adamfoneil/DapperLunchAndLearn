@@ -168,7 +168,7 @@ foreach (var artist in data)
 
 <details>
     <summary>Ex 6: Fill in some missing year data</summary>
-<details>
+</details>
 
 <details>
     <summary>Ex 7: Query related data</summary>
