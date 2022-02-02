@@ -25,11 +25,32 @@ using var cn = Connection.Open();
 <details>
 <summary>Ex 1: A simple insert</summary>
 
+This is a single insert using one of a model class instance as a parameter.
+    
 ```csharp
 await cn.ExecuteAsync("INSERT INTO [Artist] ([Name], [CreatedBy]) VALUES (@Name, @CreatedBy)", new Artist()
 {
     Name = "Talking Heads",
     CreatedBy = "adamo"
 });
+```
+</details>
+
+<details>
+<summary>Ex 2: Insert and capture generated Id</summary>
+
+Here we perform a similar insert, but capture the generated Id value.
+
+```csharp
+var id = await cn.QuerySingleAsync<int>(
+    @"INSERT INTO [Artist] ([Name], [CreatedBy]) VALUES (@Name, @CreatedBy);
+    SELECT SCOPE_IDENTITY()", new Artist()
+{
+    Name = "Celine Dion",
+    CreatedBy = "adamo"
+});
+
+Console.WriteLine($"Id = {id}");
+
 ```
 </details>
