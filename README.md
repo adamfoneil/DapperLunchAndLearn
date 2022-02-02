@@ -165,3 +165,37 @@ foreach (var artist in data)
 }
 ```
 </details>
+
+<details>
+    <summary>Ex 6: Fill in some missing year data</summary>
+<details>
+
+<details>
+    <summary>Ex 7: Query related data</summary>
+
+Often you'll need to query related together, such as header and detail rows. I believe there's a clever way to map nested data with Dapper, but the way I do it that I understand is to do several queries at the outside, then divide up the results by some key value using LINQ `ToLookup`. From a performance standpoint, the important thing is to avoid queries within loops. Instead, execute one database roundtrip, then use LINQ methods to shape the results in memory in a useful way.
+    
+    This example queries artists, albums, and songs, and groups them by their respective parent key value. Then it outputs everything to the console.
+    
+```csharp
+var allArtists = await cn.QueryAsync<Artist>("SELECT * FROM [Artist]");
+var albumsByArtist = (await cn.QueryAsync<Album>("SELECT * FROM [Album]")).ToLookup(row => row.ArtistId);
+var songsByAlbum = (await cn.QueryAsync<Song>("SELECT * FROM [Song] ORDER BY [TrackNumber]")).ToLookup(row => row.AlbumId);
+
+foreach (var artist in allArtists)
+{
+    artist.Albums = albumsByArtist[artist.Id];
+    foreach (var album in artist.Albums) album.Songs = songsByAlbum[album.Id];
+
+    Console.WriteLine(artist.Name);
+    foreach (var album in artist.Albums)
+    {
+        Console.WriteLine($"\t{album.Title} ({album.Year})");
+        foreach (var song in album.Songs)
+        {
+            Console.WriteLine($"\t\t{song.TrackNumber}: {song.Title}");
+        }
+    }
+}
+```   
+</details>
