@@ -227,17 +227,23 @@ foreach (var artist in allArtists)
 <details>
     <summary>Ex 8: Simpler inserts with Dommel</summary>
     
-The [Dommel](https://github.com/HenkMollema/Dommel) library offers some extension methods to make it simple to insert and update from model classes.
+The [Dommel](https://github.com/HenkMollema/Dommel) library offers some extension methods to make it simple to insert and update from model classes. Fill in your own artist name and user name. By default, Dommel assumes that your table names are the plural form of your class name. You can override this with the [Table](https://github.com/adamfoneil/DapperLunchAndLearn/blob/master/DapperLunchAndLearn/Models/Album.cs#L9) attribute.
     
 ```csharp
 var objId = await cn.InsertAsync(new Artist()
 {
     Name = "Beck",
-    CreatedBy = "adamo"
+    CreatedBy = "<your name>"
 });
 
 var id = Convert.ToInt32(objId);
 
 Console.WriteLine($"id = {id}");
 ```
+</details>
+
+<details>
+    <summary>Ex 9: Update with Dommel</summary>
+    
+Updating a row is similarly very easy with Dommel
 </details>
