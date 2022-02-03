@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>AO.DapperLunchAndLearn</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Adam O'Neil</Authors>
     <Description>A set of model classes and utilities for demonstrating Dapper</Description>
     <Copyright>Copyright (c) Adam O'Neil 2022</Copyright>
