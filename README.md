@@ -266,3 +266,9 @@ artist = await cn.GetAsync<Artist>(objId);
 Console.WriteLine(artist.Name);
 ```
 </details>
+
+# More
+- There's a pretty active ecosystem of Dapper-related packages and extensions out there. See [NuGet.org](https://www.nuget.org/packages?q=dapper)
+- I have a couple packages of my own:
+    - [Dapper.QX](https://github.com/adamfoneil/Dapper.QX) for more powerful and testable inline SQL
+    - [Dapper.Repository](https://github.com/adamfoneil/Dapper.Repository) to let you implement Dapper in the repository pattern
