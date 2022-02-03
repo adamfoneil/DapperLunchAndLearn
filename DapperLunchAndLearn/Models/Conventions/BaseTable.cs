@@ -5,6 +5,7 @@ namespace DapperLunchAndLearn.Models.Conventions
 {
     public abstract class BaseTable : IModel<int>
     {
+        [Key]
         public int Id { get; set; }
 
         [MaxLength(50)]

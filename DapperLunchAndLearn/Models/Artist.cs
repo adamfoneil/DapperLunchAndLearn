@@ -5,9 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DapperLunchAndLearn.Models
 {    
+    [Table(nameof(Artist))]
     public class Artist : BaseTable
     {        
-        [Key]
         [MaxLength(50)]
         public string Name { get; set; }
 

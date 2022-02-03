@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DapperLunchAndLearn.Models
 {
+    [Table(nameof(Song))]
     public class Song : BaseTable
     {
         [References(typeof(Album), CascadeDelete = true)]
