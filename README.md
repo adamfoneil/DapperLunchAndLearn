@@ -23,13 +23,13 @@ using var cn = Connection.Open();
 <details>
 <summary>Ex 1: A simple insert</summary>
 
-This is a single insert using one of a model class instance as a parameter.
+This is a single insert using one of a model class instance as a parameter. Fill in `<your name>` with a string that is your name.
     
 ```csharp
 await cn.ExecuteAsync("INSERT INTO [Artist] ([Name], [CreatedBy]) VALUES (@Name, @CreatedBy)", new Artist()
 {
     Name = "Talking Heads",
-    CreatedBy = "adamo"
+    CreatedBy = <your name>
 });
 ```
 </details>
@@ -49,7 +49,6 @@ var id = await cn.QuerySingleAsync<int>(
 });
 
 Console.WriteLine($"Id = {id}");
-
 ```
 </details>
 
@@ -238,5 +237,7 @@ var objId = await cn.InsertAsync(new Artist()
 });
 
 var id = Convert.ToInt32(objId);
+
+Console.WriteLine($"id = {id}");
 ```
 </details>
