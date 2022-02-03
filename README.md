@@ -227,8 +227,8 @@ foreach (var artist in allArtists)
 <details>
     <summary>Ex 8: Simpler inserts with Dommel</summary>
     
-The [Dommel](https://github.com/HenkMollema/Dommel) library offers some extension methods to make it simple to insert and update from model classes. Fill in your own artist name and user name. By default, Dommel assumes that your table names are the plural form of your class name. You can override this with the [Table](https://github.com/adamfoneil/DapperLunchAndLearn/blob/master/DapperLunchAndLearn/Models/Album.cs#L9) attribute.
-    
+The [Dommel](https://github.com/HenkMollema/Dommel) library offers some extension methods to make it simple to insert and update from model classes. Fill in your own artist name and user name. By default, Dommel assumes that your table names are the plural form of your class name. You can override this with the [Table](https://github.com/adamfoneil/DapperLunchAndLearn/blob/master/DapperLunchAndLearn/Models/Artist.cs#L8) attribute. Dommel also seems to require an explicit `Key` property. I set this in my [BaseTable](https://github.com/adamfoneil/DapperLunchAndLearn/blob/master/DapperLunchAndLearn/Models/Conventions/BaseTable.cs#L8) so all my models inherit it.
+     
 ```csharp
 var objId = await cn.InsertAsync(new Artist()
 {
@@ -245,5 +245,24 @@ Console.WriteLine($"id = {id}");
 <details>
     <summary>Ex 9: Update with Dommel</summary>
     
-Updating a row is similarly very easy with Dommel
+Updating a row is similarly very easy with Dommel. Here, I'm creating a new row, capturing its `Id`, updating, then fetching it again.
+    
+```csharp
+var artist = new Artist()
+{
+    Name = "Elvis Presley",
+    CreatedBy = "adamo"
+};
+
+var objId = await cn.InsertAsync(artist);
+artist.Id = Convert.ToInt32(objId);
+
+artist.Name = "John Williams";
+await cn.UpdateAsync(artist);
+
+artist = await cn.GetAsync<Artist>(objId);
+
+// should be John Williams
+Console.WriteLine(artist.Name);
+```
 </details>
