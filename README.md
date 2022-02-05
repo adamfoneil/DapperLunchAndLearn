@@ -1,3 +1,7 @@
+Note: I removed the database that was backing this on 2/5/22, so the fiddle below no longer works.
+
+---
+
 This is intended for a live demo using a certain [DotNetFiddle](https://dotnetfiddle.net/Bni3CE) to learn [Dapper](https://github.com/DapperLib/Dapper), a great library for working with SQL in C#.
 
 # The database schema
